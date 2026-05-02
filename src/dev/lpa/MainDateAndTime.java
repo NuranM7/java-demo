@@ -3,6 +3,7 @@ package dev.lpa;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 
 public class MainDateAndTime {
 
@@ -43,8 +44,21 @@ public class MainDateAndTime {
         System.out.println(May5.withDayOfYear(126));
         System.out.println(May5);
         System.out.println(May5.with(ChronoField.DAY_OF_YEAR, 126));
+        System.out.println(May5.plusYears(1));
+        System.out.println(May5.plusMonths(12));
+        System.out.println(May5.plusDays(365));
+        System.out.println(May5.plusWeeks(52).plusDays(1));
+        System.out.println(May5.plus(365, ChronoUnit.DAYS));
 
 
+        System.out.println("May5 > today? " + May5.isAfter(today));
+        System.out.println("May5 < today? " + May5.isBefore(today));
+        System.out.println("May5 > today? " + May5.compareTo(today));
+        System.out.println("May5 < today? " + today.compareTo(May5));
+        System.out.println("today == now ? " + today.compareTo(LocalDate.now()));
+        System.out.println("today == now ? " + today.equals(LocalDate.now()));
 
+        System.out.println(today.isLeapYear());
+        System.out.println(May5.minusYears(2).isLeapYear());
     }
 }
